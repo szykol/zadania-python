@@ -9,7 +9,11 @@ class Figure:
         return 'Color r:{0[0]} g:{0[1]} b:{0[2]} | Filled: {1}'.format(self.color, self.is_filled)
 
     def __repr__(self):
-        return 'self.__dict__'
+        params = '('
+        for k,v in self.__dict__.items():
+            params += f'{k}={v},'
+        params = params[:-1] + ')'
+        return f'{__name__}.{self.__class__.__name__}{params}'
         
 class Circle(Figure):
     def __init__(self, radius):
@@ -89,12 +93,12 @@ class Rectangle(Figure):
 if __name__ == "__main__":
     f = Figure()
     print(f)
-    repr(f)
+    print(repr(f))
 
     c = Circle(5)
     print(c)
-    repr(c)
+    print(repr(c))
 
     r = Rectangle(10,20)
     print(r)
-    repr(r)
+    print(repr(r))
