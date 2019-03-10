@@ -15,7 +15,7 @@ class Rectangle:
         return f'a: {self.length} h: {self.height} | area: {self.area()}'
 
     def __repr__(self):
-        return f'Rectangle'
+        return f'{__name__}.{self.__class__.__name__}({self.length},{self.height})'
 
     def area(self):
         return self.length * self.height
@@ -35,10 +35,12 @@ class Cuboid(Rectangle):
             self.width = width
 
     def __str__(self):
-        return super().__str__() + f' volume: {self.volume()}'
+        prev = super().__str__()
+        index = prev.find('|')
+        return prev[:index] + f'c: {self.width} ' + prev[index:] + f' volume: {self.volume()}'
 
     def __repr__(self):
-        return super().__repr__() + ' | Cuboid'
+        return f'{__name__}.{self.__class__.__name__}({self.length}, {self.height}, {self.width})'
 
     def area(self):
         return super().area() * 2 + self.width * self.length * 2 + self.height * self.width * 2
