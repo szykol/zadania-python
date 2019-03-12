@@ -8,7 +8,7 @@ class Coin:
         return self.side
 
     def throw(self):
-        self.side = 'Orzeł' if random.randint(0, 1) == 0 else 'Reszka'
+        self.side = random.choice(['Orzel', 'Reszka'])
 
 if __name__ == "__main__":
     coin1 = Coin()
