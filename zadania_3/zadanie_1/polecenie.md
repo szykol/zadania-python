@@ -13,7 +13,7 @@ metody) i nazwę użytkownika na zaszyfrowaną wersję, którą zwraca (wykorzyt
 None.
 - prostą hierarichę klas wyjątków o pustych ciałach (zob poniższy diagram UML)
 
-![diagram](/zadania_3/zadanie_1/diagram.png)
+![diagram](https://github.com/szykol/zadania_python/blob/master/zadania_3/zadanie_1/diagram.PNG)
 
 - klasę **Authenticator** - klasa kontrolująca użytkowników. Klasa powinna zawierać metody:
     - **\_\_init__()** - tworzy i incjializuje pustym słownikiem atrybut users;
