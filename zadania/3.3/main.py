@@ -48,7 +48,7 @@ class FibSeq:
 with open('liczby.txt', 'w') as f:
     first = True
     for i in FibSeq(100000, 100020):
-        f.write(str(i))
+        f.write(f'{i}\n')
         if first:
             print(f'Ilosc cyfr F(100000): {len(str(i))}')
             first = False
