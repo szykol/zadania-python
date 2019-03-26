@@ -32,7 +32,6 @@ class FibSeq:
 
     def __iter__(self):
         n = 0
-        val = None
         it = iter(FibGen())
         while n < self.start:
             next(it)
@@ -44,7 +43,6 @@ class FibSeq:
 
         return 
 
-
 with open('liczby.txt', 'w') as f:
     first = True
     for i in FibSeq(100000, 100020):
@@ -52,5 +50,3 @@ with open('liczby.txt', 'w') as f:
         if first:
             print(f'Ilosc cyfr F(100000): {len(str(i))}')
             first = False
-
-
