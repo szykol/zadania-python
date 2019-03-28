@@ -11,8 +11,8 @@ def ctr_c_handler(sig, frame):
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, ctr_c_handler)
 
-    parser = argparse.ArgumentParser(description='Naprawia ogonki w plikach polecenie.md')
-    parser.add_argument('file', help='The file containing binary source code', type=str)
+    parser = argparse.ArgumentParser(description='Naprawia ogonki w plikach z poleceniami')
+    parser.add_argument('file', help='Plik do naprawy ogonkow', type=str)
 
     args = parser.parse_args()
     filename = args.file
