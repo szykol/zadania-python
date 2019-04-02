@@ -5,10 +5,9 @@ class User:
         self.is_logged = False
 
     def _encrypt_password(self, password):
-        # TODO: hashowanie hasla
         import hashlib
         
-        password = password.encode()
+        password = str.encode(password + self.username)
         encryptor = hashlib.sha256()
         encryptor.update(password)
         password = encryptor.hexdigest() 
