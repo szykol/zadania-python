@@ -7,7 +7,7 @@ def flat(seq):
 
 def is_iterable(it):
     try:
-        _ = iter(it)
+        iter(it)
     except TypeError:
         return False
     else:
