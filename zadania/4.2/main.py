@@ -4,16 +4,17 @@ class Temperature(ABC):
     @abstractmethod
     def __init__(self, temperature):
         self.__temperature = temperature
+        self.scale = None
 
     @abstractmethod
     def _temp_setter(self, temperature):
         self.__temperature = temperature
 
     def __str__(self):
-        return f'{self.temperature} ° w skali Celsjusz'
+        return f'{self.temperature} ° w skali {self.scale}'
 
     def __repr__(self):
-        return f'{type(self)(self.temperature)}'
+        return f'{type(self).__name__}({self.temperature})'
 
     def above_freezing(self):
         return self.convert_to_Celsius().temperature > 0
@@ -41,6 +42,7 @@ class Temperature(ABC):
 class Celsius(Temperature):
     def __init__(self, temperature):
         super().__init__(temperature)
+        self.scale = 'Celsjusz'
 
     def _temp_setter(self, temperature):
         self.__temperature = temperature
@@ -57,6 +59,8 @@ class Celsius(Temperature):
 class Kelvin(Temperature): 
     def __init__(self, temperature):
         super().__init__(temperature)
+        self.scale = 'Kelvin'
+
 
     def _temp_setter(self, temperature):
         self.__temperature = temperature
@@ -74,6 +78,7 @@ class Kelvin(Temperature):
 class Fahrenheit(Temperature):
     def __init__(self, temperature):
         super().__init__(temperature)
+        self.scale = 'Fahrenheit'
 
     def _temp_setter(self, temperature):
         self.__temperature = temperature
