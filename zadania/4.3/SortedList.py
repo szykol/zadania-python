@@ -12,14 +12,6 @@ class SortedList(collections.abc.Sequence):
         return len(self.sequence)
 
     def add(self, item):
-        length = self.__len__()
-
-        # if there's no items in the sequence - append item
-        if length == 0:
-            self.sequence.append(item)
-            return
-
-        # search for matching index
         index = self._find_index(0, self.__len__() - 1, self.key(item))
         self.sequence.insert(index, item)
 
@@ -32,11 +24,11 @@ class SortedList(collections.abc.Sequence):
         mid = l + (r - l) // 2
 
         # get the actual value from the key function
-        mid_el = self.key(self.sequence[mid])
+        mid_val = self.key(self.sequence[mid])
 
-        if mid_el > item:
+        if mid_val > item:
             return self._find_index( l, mid-1, item)
-        elif mid_el < item:
+        elif mid_val < item:
             return self._find_index( mid+1, r, item)
         
         # if the item is found - place the item next to it
