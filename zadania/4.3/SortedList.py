@@ -15,6 +15,28 @@ class SortedList(collections.abc.Sequence):
         index = self._find_index(0, self.__len__() - 1, self.key(item))
         self.sequence.insert(index, item)
 
+    def pop(self, i=-1):
+        return self.sequence.pop(i)
+
+    def clear(self):
+        self.sequence.clear()
+
+    def remove(self, item):
+        self.sequence.remove(item)
+
+    def extend(self, iterable):
+        for el in iterable:
+            self.add(el)
+
+    def index(self, i, start=0, end=-1):
+        return self.sequence.index(i, start, end)
+
+    def count(self, x):
+        return self.sequence.count(x)
+
+    def copy(self):
+        return self.sequence[:]
+
     def _find_index(self, l, r, item):
 
         # if the item is not found - return l which
