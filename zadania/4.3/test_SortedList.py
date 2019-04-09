@@ -3,7 +3,7 @@ from SortedList import SortedList
 
 class TestSortedList(unittest.TestCase):
     def test_empty_at_first(self):
-        # Test if the SortedList is empty at the start
+        """ Test if the SortedList is empty at the start """
         self.assertEqual(len(SortedList()), 0)
 
     def test_add(self):
@@ -13,7 +13,7 @@ class TestSortedList(unittest.TestCase):
         self.assertEqual(sl.sequence, [1])
 
     def test_correct_order(self):
-        # Test if object puts items in correct order
+        """ Test if object puts items in correct order """
         items = [5, 3, 10, 1, 15, 20, 30]
 
         sl = SortedList()
@@ -23,7 +23,7 @@ class TestSortedList(unittest.TestCase):
         self.assertEqual(sorted(items), sl.sequence)
 
     def test_correct_len(self):
-        # Test if object has correct length
+        """ Test if object has correct length """
         sl = SortedList()
         sl.add(10)
         self.assertEqual(len(sl), 1)
@@ -33,7 +33,7 @@ class TestSortedList(unittest.TestCase):
         self.assertEqual(len(sl), 3)
 
     def test_getitem(self):
-        # Test if __getitem__ is correctly implemented
+        """ Test if __getitem__ is correctly implemented """
         sl = SortedList()
 
         items = [(0, 1), (0, 2), (0, 3)]
@@ -45,11 +45,10 @@ class TestSortedList(unittest.TestCase):
             self.assertEqual(items[i], sl[i])
             self.assertEqual(items[ri], sl[ri])
 
-        with self.assertRaises(IndexError):
-            sl[10]
+        self.assertRaises(IndexError, sl.__getitem__, 10)
 
     def test_accepts_duplicates(self):
-        # Test if object accepts duplicate items
+        """ Test if object accepts duplicate items """
         sl = SortedList()
         sl.add(0)
         sl.add(0)
@@ -57,8 +56,8 @@ class TestSortedList(unittest.TestCase):
         self.assertEqual(len(sl), 2)
 
     def test_specified_key(self):
-        # Test if object inserts values in correct order
-        # if the key is specified
+        """ Test if object inserts values in correct order
+            if the key is specified """
         key_1 = lambda a: a[0]
         key_2 = lambda a: a[1]
 
@@ -74,9 +73,9 @@ class TestSortedList(unittest.TestCase):
         self.assertEqual(sorted(items, key=key_2), sl_key2.sequence)
 
     def test_extend(self):
-        # Test if object accepts an iterable
-        # and puts all of it's items in correct
-        # order
+        """ Test if object accepts an iterable
+            and puts all of it's items in correct
+            order """
         sl = SortedList()
 
         items = [3, 0, 1, 15]
@@ -90,7 +89,7 @@ class TestSortedList(unittest.TestCase):
         self.assertEqual(sorted(items + more_items), sl.sequence)
 
     def test_pop(self):
-        # Test if the object pops correctly
+        """ Test if the object pops correctly """
         sl = SortedList()
 
         with self.assertRaises(IndexError):
@@ -107,7 +106,7 @@ class TestSortedList(unittest.TestCase):
         self.assertEqual(sl.sequence, [4, 6, 9])
         
     def test_clear(self):
-        # Test if object clears it's contents
+        """ Test if object clears it's contents """
         sl = SortedList()
         sl.extend([0, 10, 20, -5, -200])
         
@@ -116,7 +115,7 @@ class TestSortedList(unittest.TestCase):
         self.assertEqual(sl.sequence, [])
 
     def test_remove(self):
-        # Test if object removes items
+        """ Test if object removes items """
         sl = SortedList()
         sl.extend([0, 10, 20, -5, 10])
 
@@ -131,7 +130,7 @@ class TestSortedList(unittest.TestCase):
         self.assertRaises(ValueError, sl.remove, 10)
 
     def test_count(self):
-        # Test if returns correct count of an item
+        """ Test if returns correct count of an item """
         sl = SortedList()
         sl.extend([0, 4, 3, 4, 3, 4, 10, 4, 10, 3])
 
@@ -141,7 +140,7 @@ class TestSortedList(unittest.TestCase):
         self.assertEqual(sl.count(2000), 0)
         
     def test_copy(self):
-        # Test if returns a copy of it's contents
+        """ Test if returns a copy of it's contents """
         sl = SortedList()
 
         self.assertEqual(sl.copy(), [])
@@ -150,7 +149,7 @@ class TestSortedList(unittest.TestCase):
         self.assertEqual(sl.copy(), [3, 5, 10, 20])
 
     def test_index(self):
-        # Test if returns the index of an item
+        """ Test if returns the index of an item """
         sl = SortedList()
         self.assertRaises(ValueError, sl.index, 0) 
 
